@@ -1,0 +1,59 @@
+﻿<Window x:Class="ProjZesp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjZesp"
+        mc:Ignorable="d"
+        Title="Projekt Zespolowy" Height="460" Width="710" MaxWidth="710" MaxHeight="460" MinWidth="710" MinHeight="460">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button x:Name="AddOutlinePointButton" Content="+&#xD;&#xA;Kontur" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="Mode_Button_Click" Background="#FFA5A5A5"/>
+        <Button x:Name="RemoveOutlinePointButton" Content="-&#xD;&#xA;Kontur" HorizontalAlignment="Left" Margin="10,65,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="Mode_Button_Click"/>
+        <Button x:Name="AddKeyPointButton" Content="+&#xD;&#xA;P.klucz." HorizontalAlignment="Left" Margin="10,120,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="Mode_Button_Click"/>
+        <Button x:Name="RemoveKeyPointButton" Content="-&#xD;&#xA;P.klucz." HorizontalAlignment="Left" Margin="10,175,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="Mode_Button_Click"/>
+        <Border BorderBrush="Black" BorderThickness="1" Height="400" Width="400" Margin="65,10,239,20.4"/>
+        <Canvas x:Name="MapCanvas" Background="White" HorizontalAlignment="Left" Height="400" Margin="65,10,0,0" VerticalAlignment="Top" Width="400" MouseLeftButtonUp="MapCanvas_MouseUp" Panel.ZIndex="1">
+        </Canvas>
+        <TabControl HorizontalAlignment="Left" Height="272" Margin="470,10,0,0" VerticalAlignment="Top" Width="214">
+            <TabItem Header="Sterowanie">
+                <Grid Background="#FFEDEDED">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Plik wejściowy:" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="FilePathBox" HorizontalAlignment="Left" Height="80" Margin="0,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138"/>
+                    <Button x:Name="OpenFileButton" Content="Przeglądaj" HorizontalAlignment="Left" Margin="138,34,-0.2,0" VerticalAlignment="Top" Width="71" Height="80" Click="Button_Click"/>
+                    <CheckBox x:Name="ApplyImageCheckbox" Content="Nałóż zdjęcie:" HorizontalAlignment="Left" Margin="0,126,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked" Unchecked="CheckBox_Checked"/>
+                    <TextBox x:Name="ImagePathBox" HorizontalAlignment="Left" Height="80" Margin="0,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138" IsEnabled="False"/>
+                    <Button x:Name="OpenImageButton" Content="Przeglądaj" HorizontalAlignment="Left" Margin="138,146,-0.2,0" VerticalAlignment="Top" Width="71" Height="78" Click="Button_Click" IsEnabled="False"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Właściwości">
+                <Grid Background="#FFEDEDED">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TreeView HorizontalAlignment="Left" Height="244" VerticalAlignment="Top" Width="209" Margin="0,0,-0.2,0"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Wejście">
+                <Grid Background="#FFEDEDED">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Name="FileReadingBox" TextWrapping="Wrap" Text="Wyświetlanie pliku wejściowego." ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+         ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="0,0,-0.2,0" IsReadOnly="True"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <TextBox x:Name="ConsoleBox" HorizontalAlignment="Left" Height="84" Margin="470,326,0,0" TextWrapping="Wrap" Text="Konsola" VerticalAlignment="Top" Width="214"/>
+        <Button x:Name="UpdateButton" Content="Aktualizuj" HorizontalAlignment="Left" Margin="470,288,0,0" VerticalAlignment="Top" Width="214" Height="31" IsEnabled="False" Click="Button_Click"/>
+    </Grid>
+</Window>
